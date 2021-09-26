@@ -1,10 +1,11 @@
 package com.example.daggerhiltexample.repository
 
-import com.example.daggerhiltexample.pojo.ImagePojo
+import com.example.daggerhiltexample.pojo.MovieList
 
-class MainRepositoryImpl(private val apiHttpInterface: ApiHttpInterface) : MainRepository {
-
-    override suspend fun getImageList(): List<ImagePojo> {
-        return apiHttpInterface.getImageList()
+class MainRepositoryImpl(private val mainHttpInterface: MainHttpInterface) : MainRepository {
+    override suspend fun getMoviewList(pageNo: Int): MovieList? {
+       return mainHttpInterface.getMovieList(pageNo)
     }
+
+
 }

@@ -1,6 +1,6 @@
 package com.example.daggerhiltexample.di
 
-import com.example.daggerhiltexample.repository.ApiHttpInterface
+import com.example.daggerhiltexample.repository.MainHttpInterface
 import com.example.daggerhiltexample.repository.MainRepository
 import com.example.daggerhiltexample.repository.MainRepositoryImpl
 import dagger.Module
@@ -17,13 +17,13 @@ object RepoModule {
 
     @Singleton
     @Provides
-    fun provideApiHttpInterface(retrofit: Retrofit): ApiHttpInterface {
-        return retrofit.create(ApiHttpInterface::class.java)
+    fun provideApiHttpInterface(retrofit: Retrofit): MainHttpInterface {
+        return retrofit.create(MainHttpInterface::class.java)
     }
 
     @Singleton
     @Provides
-    fun provideMainRepositoryImpl(apiHttpInterface: ApiHttpInterface): MainRepository {
-        return MainRepositoryImpl(apiHttpInterface = apiHttpInterface)
+    fun provideMainRepositoryImpl(mainHttpInterface: MainHttpInterface): MainRepository {
+        return MainRepositoryImpl(mainHttpInterface = mainHttpInterface)
     }
 }

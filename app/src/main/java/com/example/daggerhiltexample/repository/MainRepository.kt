@@ -1,7 +1,7 @@
 package com.example.daggerhiltexample.repository
 
-import com.example.daggerhiltexample.pojo.ImagePojo
+import com.example.daggerhiltexample.pojo.MovieList
 
 interface MainRepository {
-    suspend fun getImageList(): List<ImagePojo>
+    suspend fun getMoviewList(pageNo: Int): MovieList?
 }

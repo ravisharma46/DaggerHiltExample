@@ -15,7 +15,12 @@ constructor(private val mainRepository: MainRepository) : ViewModel() {
     fun getImageList() = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {
-            Resource.success(data = mainRepository.getImageList())
+            emit(
+                Resource.success(
+                    data = mainRepository.getMoviewList(1)
+                )
+            )
+
         } catch (exception: Exception) {
             emit(Resource.error(exception.message ?: "Error Occurred!", data = null))
         }
