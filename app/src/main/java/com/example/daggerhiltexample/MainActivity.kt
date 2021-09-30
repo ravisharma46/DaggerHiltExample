@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
-import com.example.daggerhiltexample.pojo.Status
 import com.example.daggerhiltexample.presentation.component.MovieCard
 import com.example.daggerhiltexample.viewModel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,7 +35,8 @@ class MainActivity : AppCompatActivity() {
             ) { index, movie ->
                 MovieCard(
                     moviePojo = movie!!,
-                    onClick = {}
+                    onClick = {},
+                    this@MainActivity
                 )
             }
         }
