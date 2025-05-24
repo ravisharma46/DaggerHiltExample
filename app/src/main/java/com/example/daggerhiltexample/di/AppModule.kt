@@ -1,16 +1,13 @@
 package com.example.daggerhiltexample.di
 
 import android.app.Application
-import android.content.Context
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
+import com.google.firebase.FirebaseApp // Added import
 import dagger.hilt.android.HiltAndroidApp
-import dagger.hilt.android.components.ApplicationComponent
-import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Singleton
-
 
 @HiltAndroidApp
-class AppModule:Application() {
+class AppModule : Application() {
+    override fun onCreate() { // Added onCreate method
+        super.onCreate()
+        FirebaseApp.initializeApp(this)
+    }
 }

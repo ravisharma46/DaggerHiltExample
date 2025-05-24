@@ -13,6 +13,7 @@ buildscript {
 
         def hilt = "2.28-alpha"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt"
+        classpath 'com.google.gms:google-services:4.3.15'
     }
 }
 
